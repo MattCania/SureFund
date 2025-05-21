@@ -3,11 +3,14 @@ dotenv.config();
 
 import express from "express";
 
-import { databaseSyncronize } from "./models/index.js";
+import { databaseInitialize } from "./src/database.js";
 
 const app = express();
 
 app.listen(process.env.PORT, async () => {
-  await databaseSyncronize();
+  if (process.env.NODE_ENV === 'development') {
+    await databaseInitialize()
+    console.log("Syncronizing Finished")
+  ;}
   console.log("Backend Server Started with Port: ", process.env.PORT);
 });
