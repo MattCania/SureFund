@@ -1,17 +1,13 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 
-import express from 'express'
+import express from "express";
 
-const app = express()
+import { databaseSyncronize } from "./models/index.js";
 
-app.get("/", (req, res) => {
-	res.send("Hello User")
-})
+const app = express();
 
-
-app.listen(process.env.PORT, () => {
-	console.log("Backend Server Started with Port: ", process.env.PORT)
-})
-
-
+app.listen(process.env.PORT, async () => {
+  await databaseSyncronize();
+  console.log("Backend Server Started with Port: ", process.env.PORT);
+});
