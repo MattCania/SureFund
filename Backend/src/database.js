@@ -1,11 +1,21 @@
 import dotenv from "dotenv";
 dotenv.config();
-import { Sequelize } from "sequelize";
 import pg from "pg";
-var sequelize;
+import { databaseSyncronize } from "../models/index.js";
+import { Sequelize } from "sequelize";
 
+// Initialize env variables
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DATABASE, DIALECT } =
   process.env;
+
+// Instantiate Sequelize Object
+const sequelize = new Sequelize(DATABASE, DB_USER, DB_PASSWORD, {
+      host: DB_HOST,
+      port: DB_PORT,
+      dialect: DIALECT,
+      logging: false,
+    });
+	
 
 // Initializes Database from the main App
 export async function databaseInitialize() {
@@ -27,14 +37,6 @@ export async function databaseInitialize() {
       console.error("Error Database Creation:", error);
     }
   } finally {
-	// Instansiate new Sequelize Object after database creation
-    sequelize = new Sequelize(DATABASE, DB_USER, DB_PASSWORD, {
-      host: DB_HOST,
-      port: DB_PORT,
-      dialect: DIALECT,
-      logging: false,
-    });
-
     await client.end();
   }
 }

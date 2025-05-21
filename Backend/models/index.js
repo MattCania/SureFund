@@ -1,13 +1,20 @@
-import sequelize from "../src/database.js";
+import sequelize, { databaseInitialize } from "../src/database.js";
+import UserAccounts from "./userAccounts.js";
+import UserProfiles from "./userProfiles.js";
+
+const UserAccountsModel = UserAccounts(sequelize)
+const UserProfilesModel = UserProfiles(sequelize)
 
 export async function databaseSyncronize() {
   try {
+
     sequelize.authenticate();
-    sequelize.sync({ alter: true });
+    sequelize.sync({ force: true });
     console.log("Successful Syncronization!");
   } catch (error) {
     console.log("Syncronization Failed!", error);
   }
 }
 
-export { sequelize };
+
+export { sequelize, UserAccountsModel, UserProfilesModel };
