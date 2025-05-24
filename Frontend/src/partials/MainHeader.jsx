@@ -8,13 +8,13 @@ import Dropdown from "../components/Dropdown"
 function MainHeader() {
 	const serviceLinks = [
 		{
-			label: "Inventory", link: "/surefund/service-inventory"
+			label: "Lend and Borrow", link: "/surefund/service-lend&borrow"
 		},
 		{
 			label: "E-Wallet", link: "/surefund/service-wallet"
 		},
 		{
-			label: "Analytics", link: "/surefund/service-analytics"
+			label: "Emergency Requests", link: "/surefund/service-emergency"
 		},
 	]
 

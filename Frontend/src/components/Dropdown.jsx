@@ -34,7 +34,7 @@ export default function Dropdown({ linkStyle, buttonStyle, dropdownStyle, label,
 					items.map((item, index) => (
 						<Link
 							key={index}
-							className={`flex w-full justify-start items-center px-2 py-2 ${linkStyle ? linkStyle : ' text-white hover:bg-gray-200 hover:text-black transition-all duration-250'} `}
+							className={`flex w-full justify-start items-center px-2 py-2 ${linkStyle ? linkStyle : ' text-white hover:bg-gray-200 text-sm hover:text-black transition-all duration-250'} `}
 							to={item.link}
 						>
 							{item.label}
