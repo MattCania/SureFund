@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import MainHeader from './partials/MainHeader'
+import CaptureRouter from './pages/Capture/CaptureRouter'
 
 function App() {
 
@@ -21,7 +19,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Navigate to='/surefund' replace />} />
-          <Route path='/surefund' element={<h1>Hello</h1>} />
+          <Route path='/surefund/*' element={<CaptureRouter/>} />
         </Routes>
       </section>
     </Router>
