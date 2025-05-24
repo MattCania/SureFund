@@ -2,14 +2,21 @@ import { Link } from "react-router-dom"
 import { faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from "react"
+import Dropdown from "../components/Dropdown"
 
 
 function MainHeader() {
-	const [serviceDropdown, showServiceDropdown] = useState(false)
-
-	const toggleDropdown = () => {
-		showServiceDropdown(!serviceDropdown)
-	}
+	const serviceLinks = [
+		{
+			label: "Inventory", link: "/surefund/service-inventory"
+		},
+		{
+			label: "E-Wallet", link: "/surefund/service-wallet"
+		},
+		{
+			label: "Analytics", link: "/surefund/service-analytics"
+		},
+	]
 
 	return (
 		<nav
@@ -24,50 +31,18 @@ function MainHeader() {
 					SureFund
 				</Link>
 
-				<div
-					className="flex justify-center items-center h-full relative"
-				>
-					<button
-						className='flex justify-center items-center h-full text-white text-md px-4 mx-4"'
-						onClick={toggleDropdown}
-					>
-						Service 
-						<FontAwesomeIcon className="mx-4" icon={faCaretDown}/>
-					</button>
-
-					<div
-						className={`${serviceDropdown ? 'flex' : 'hidden'} flex-col justify-center items-center h-auto border text-white absolute top-full w-full p-4`}
-					>
-						<Link
-							to={''}
-						>
-							1
-						</Link>
-						<Link
-							to={''}
-						>
-							2
-						</Link>
-						<Link
-							to={''}
-						>
-							3
-						</Link>
-					</div>
-
-				</div>
-
+				<Dropdown label="Services" icon={true} items={serviceLinks}/>
 
 				<Link
 					to={'/surefund/about'}
-					className="flex justify-center items-center h-full text-white text-md px-4 mx-4"
+					className="flex justify-center items-center h-full text-white text-md px-4 mx-4 rounded-lg hover:bg-gray-200 hover:text-black transition-all duration-250"
 				>
 					About Us
 				</Link>
 
 				<Link
 					to={'/surefund/contacts'}
-					className="flex justify-center items-center h-full text-white text-md px-4 mx-4"
+					className="flex justify-center items-center h-full text-white text-md px-4 mx-4 rounded-lg hover:bg-gray-200 hover:text-black transition-all duration-250"
 				>
 					Contacts
 				</Link>
@@ -78,7 +53,7 @@ function MainHeader() {
 				
 				<Link
 					to={'/surefund/login'}
-					className="flex justify-center items-center h-full text-white text-md px-4 mx-4"
+					className="flex justify-center items-center h-full text-white text-md px-4 mx-4 rounded-lg hover:bg-gray-200 hover:text-black transition-all duration-250"
 				>
 					Sign In
 				</Link>
