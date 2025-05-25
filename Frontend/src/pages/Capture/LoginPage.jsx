@@ -56,7 +56,7 @@ export default function LoginPage() {
 					<h1
 						className="flex w-full h-auto justify-center items-center text-black text-5xl font-semibold my-12"
 					>
-						Sign Up
+						Sign In
 					</h1>
 
 					<label
