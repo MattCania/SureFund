@@ -1,6 +1,6 @@
 import sequelize, { databaseInitialize } from "../src/database.js";
-import UserAccounts from "./userAccounts.js";
-import UserProfiles from "./userProfiles.js";
+import UserAccounts from "./UserAccounts.js";
+import UserProfiles from "./UserProfiles.js";
 
 const UserAccountsModel = UserAccounts(sequelize)
 const UserProfilesModel = UserProfiles(sequelize)

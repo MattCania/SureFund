@@ -11,6 +11,9 @@ import { databaseInitialize } from "./src/database.js";
 
 const app = express();
 
+import accountRouter from './routes/accountsRoutes.js'
+app.use('/api', accountRouter)
+
 app.listen(process.env.PORT, async () => {
   if (process.env.NODE_ENV === 'development') {
     
